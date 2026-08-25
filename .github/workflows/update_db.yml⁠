@@ -27,7 +27,6 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
         AWS_DEFAULT_REGION: auto
       run: |
-        # 加上了 --no-progress 防止日志被无效进度条刷屏，且增加容错处理
         aws s3 cp ratings.sqlite s3://my-imdb-db-mark/imdb-mark/ratings.sqlite \
           --endpoint-url https://${{ secrets.R2_ACCOUNT_ID }}.r2.cloudflarestorage.com \
           --no-progress
